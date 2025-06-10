@@ -139,12 +139,6 @@ make -j4  # Or use $(nproc) on Linux, $(sysctl -n hw.ncpu) on macOS
 sudo make altinstall
 ```
 
-### Quick Start
-
-1. Read [PEP 750](https://peps.python.org/pep-0750/) to understand the full specification
-2. Install [t-linter](https://pypi.org/project/t-linter/) for better development experience
-3. Explore [sql-tstring](https://github.com/pgjones/sql-tstring) for database work
-4. Join the [community discussions](https://discuss.python.org/c/ideas/6) to share ideas
 
 ## Related
 
