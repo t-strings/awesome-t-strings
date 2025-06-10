@@ -1,0 +1,57 @@
+name: Validate Links
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run every Sunday at 00:00 UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Link Checker
+      uses: lycheeverse/lychee-action@v2.0.2
+      with:
+        # Check all markdown files
+        args: |
+          --verbose 
+          --no-progress 
+          --accept=200,201,202,203,204,205,206,429
+          --timeout 20
+          --max-retries 3
+          --user-agent="Mozilla/5.0 (compatible; awesome-t-strings/1.0)"
+          '**/*.md'
+        fail: true
+        jobSummary: true
+        
+    - name: Create Issue on Failure
+      if: failure() && github.event_name == 'schedule'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const title = 'Broken links detected';
+          const body = `The scheduled link validation check found broken links.
+          
+          Please check the [workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.
+          
+          This issue was automatically created by the link validation workflow.`;
+          
+          await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: title,
+            body: body,
+            labels: ['bug', 'automated']
+          });
