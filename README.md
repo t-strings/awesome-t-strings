@@ -100,6 +100,7 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 ### Utilities
 
 - [better-dedent](https://github.com/treyhunner/better-dedent) - Enhanced string dedenting for cleaner template formatting
+- [regex-template](https://github.com/treyhunner/regex-template) - Auto-escapes regular expression interpolations
 
 ## Learning Resources
 
