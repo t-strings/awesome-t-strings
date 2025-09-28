@@ -106,6 +106,7 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 - [better-dedent](https://github.com/treyhunner/better-dedent) - Enhanced string dedenting for cleaner template formatting
 - [tdom](https://github.com/t-strings/tdom) - A 🤘 rockin' t-string HTML templating system for Python 3.14 by co-author team.
 - [tstring-util](https://pypi.org/project/tstring-util/) - Rendering helpers for `Template` objects, including lazy `!fn` handlers plus safe splitting and path utilities
+- [regex-template](https://github.com/treyhunner/regex-template) - Auto-escapes regular expression interpolations
 
 ## Learning Resources
 
