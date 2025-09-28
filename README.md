@@ -3,7 +3,7 @@
 > A curated list of resources, tools, libraries, and examples for Python's Template Strings (t-strings) introduced in Python 3.14
 
 > [!WARNING]
-> Template strings are currently in **beta** as part of Python 3.14. The syntax and behavior may change before the final release. This feature is experimental and should not be used in production code yet.
+> Template strings are **accepted** for Python 3.14 and available in release candidates. As of **3.14.0rc3 (2025-09-18)** the syntax is stable; some ecosystem tools are still catching up. The Python 3.14.0 GA is scheduled for **2025-10-07**, so verify against the 3.14 RCs before adopting broadly.
 
 Template strings (t-strings) are a powerful new Python feature defined in [PEP 750](https://peps.python.org/pep-0750/) that extends f-strings with programmable string processing capabilities. They enable safer string interpolation, prevent injection attacks, and allow for custom domain-specific languages.
 
@@ -32,8 +32,8 @@ Template strings (t-strings) are a new Python feature that provide programmable 
 
 - **Security**: Prevent injection attacks through controlled processing
 - **Flexibility**: Create custom DSLs for any domain (SQL, HTML, logging, etc.)
-- **Performance**: Lazy evaluation and optimized string handling
-- **Type Safety**: Full static type checking support
+- **Rendering control**: Interpolations evaluate eagerly, and `Template` objects keep literal segments plus evaluated values separate via `.strings`, `.interpolations`, and `.values` so downstream renderers can combine them explicitly and safely
+- **Type checking**: Growing support in type checkers
 
 ### Basic Examples (from PEP 750)
 
@@ -64,7 +64,10 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 ## Official Resources
 
 - [PEP 750: Template Strings](https://peps.python.org/pep-0750/) - The official specification defining t-strings syntax and semantics
-- [Python 3.14.0b2](https://www.python.org/downloads/release/python-3140b2/) - Python beta release with t-strings support (⚠️ Experimental)
+- [Template strings docs (`string.templatelib`)](https://docs.python.org/3.14/library/string.templatelib.html) - Canonical documentation for the `Template` API in 3.14
+- [Python 3.14.0rc3](https://www.python.org/downloads/release/python-3140rc3/) - Final release candidate with template string support (syntax is stable)
+- [PEP 745: Python 3.14 Release Schedule](https://peps.python.org/pep-0745/) - Official timeline for 3.14.0, targeting October 7, 2025
+- [Python 3.14 documentation](https://docs.python.org/3.14/) - Latest docs covering template strings and `string.templatelib`
 - [t-strings.help](https://t-strings.help/) - Documentation and help site maintained by the PEP 750 author
 
 ## Development Tools
@@ -76,7 +79,8 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 
 ### Type Checking
 
-- [Pyright with t-strings support](https://github.com/koxudaxi/pyright/releases/tag/1.1.401-pep750.1) - Fork of Pyright with full t-strings type checking support
+- [Pyright 1.1.402](https://github.com/microsoft/pyright/releases/tag/1.1.402) - Upstream release with first-class PEP 750 template string analysis (no fork required)
+- [mypy 1.18.2 release notes](https://mypy.readthedocs.io/en/stable/changelog.html) - Fails gracefully on unsupported template strings while full checking support is developed
 
 ### IDE Extensions
 
@@ -87,19 +91,21 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 
 - [uv](https://github.com/astral-sh/uv) - Fast Python package manager with built-in Python version management
 - [Python Docker Images](https://hub.docker.com/_/python) - Official Python images (3.14-rc tags available)
-- [CPython Source](https://github.com/python/cpython/tree/v3.14.0b2) - Build Python 3.14 from source
+- [CPython Source](https://github.com/python/cpython/tree/v3.14.0rc3) - Build Python 3.14 release candidate from source
 
 ## Libraries & Frameworks
 
 ### Database & SQL
 
-- [sql-tstring](https://github.com/pgjones/sql-tstring) - Safe SQL query building with t-strings, preventing SQL injection
-  - [PyPI Package](https://pypi.org/project/sql-tstring/) - `pip install sql-tstring`
-  - Features parameterized queries, type safety, and database adapter integration
+- [sql-tstring](https://github.com/pgjones/sql-tstring) - Safe SQL query building with t-strings, including optional clause rewriting and dialect support (`pip install sql-tstring`)
+- [t-sql](https://pypi.org/project/t-sql/) - Lightweight SQL templating that turns t-strings into parameterized queries, supporting qmark, numeric, named, format, and pyformat styles on Python 3.14+
+- [psycopg 3 template string queries](https://www.psycopg.org/psycopg3/docs/basic/tstrings.html) - Experimental template string execution in psycopg 3.3 preview builds (installable from Test PyPI as `psycopg[binary]==3.3.0.dev1`) tested with Python 3.14 RC builds
 
 ### Utilities
 
 - [better-dedent](https://github.com/treyhunner/better-dedent) - Enhanced string dedenting for cleaner template formatting
+- [tdom](https://github.com/t-strings/tdom) - A 🤘 rockin' t-string HTML templating system for Python 3.14 by co-author team.
+- [tstring-util](https://pypi.org/project/tstring-util/) - Rendering helpers for `Template` objects, including lazy `!fn` handlers plus safe splitting and path utilities
 
 ## Learning Resources
 
@@ -125,7 +131,7 @@ To start using t-strings, you'll need Python 3.14 or later:
 
 ```bash
 # Using uv package manager
-uv python install 3.14
+uv python install 3.14.0rc3
 
 # Using Docker
 docker run -it python:3.14-rc
@@ -133,7 +139,7 @@ docker run -it python:3.14-rc
 # Build from source
 git clone https://github.com/python/cpython.git
 cd cpython
-git checkout v3.14.0b2
+git checkout v3.14.0rc3
 ./configure --enable-optimizations
 make -j4  # Or use $(nproc) on Linux, $(sysctl -n hw.ncpu) on macOS
 sudo make altinstall
@@ -142,7 +148,7 @@ sudo make altinstall
 
 ## Related
 
-- [PEP 787: Safer Subprocess Usage](https://peps.python.org/pep-0787/) - Using t-strings for secure subprocess command execution
+- [PEP 787: Safer Subprocess Usage](https://peps.python.org/pep-0787/) - **Deferred to Python 3.15**; proposes t-strings support for `subprocess`/`shlex`
 - [Python f-strings](https://peps.python.org/pep-0498/) - The predecessor to t-strings
 - [Template Literal (JavaScript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) - Similar concept in JavaScript
 - [Tagged Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) - JavaScript's equivalent feature
