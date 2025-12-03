@@ -2,9 +2,6 @@
 
 > A curated list of resources, tools, libraries, and examples for Python's Template Strings (t-strings) introduced in Python 3.14
 
-> [!WARNING]
-> Template strings are **accepted** for Python 3.14 and available in release candidates. As of **3.14.0rc3 (2025-09-18)** the syntax is stable; some ecosystem tools are still catching up. The Python 3.14.0 GA is scheduled for **2025-10-07**, so verify against the 3.14 RCs before adopting broadly.
-
 Template strings (t-strings) are a powerful new Python feature defined in [PEP 750](https://peps.python.org/pep-0750/) that extends f-strings with programmable string processing capabilities. They enable safer string interpolation, prevent injection attacks, and allow for custom domain-specific languages.
 
 ## Contents
