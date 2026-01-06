@@ -100,6 +100,7 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 - [sql-tstring](https://github.com/pgjones/sql-tstring) - Safe SQL query building with t-strings, including optional clause rewriting and dialect support (`pip install sql-tstring`)
 - [t-sql](https://pypi.org/project/t-sql/) - Lightweight SQL templating that turns t-strings into parameterized queries, supporting qmark, numeric, named, format, and pyformat styles on Python 3.14+
 - [psycopg 3 template string queries](https://www.psycopg.org/psycopg3/docs/basic/tstrings.html) - Experimental template string execution in psycopg 3.3 preview builds (installable from Test PyPI as `psycopg[binary]==3.3.0.dev1`) tested with Python 3.14 RC builds
+- [ludic](https://github.com/getludic/ludic) - Lightweight HTML templating library and web framework with t-strings support
 
 ### Utilities
 
