@@ -104,6 +104,7 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 ### Utilities
 
 - [better-dedent](https://github.com/treyhunner/better-dedent) - Enhanced string dedenting for cleaner template formatting
+- [pyhtml-enhanced](https://github.com/COMP1010UNSW/pyhtml-enhanced) - Build HTML documents in type-safe Python with a simple and learnable syntax, including [t-string support](https://comp1010unsw.github.io/pyhtml-enhanced/learn/advanced.html#template-strings)
 - [tdom](https://github.com/t-strings/tdom) - A 🤘 rockin' t-string HTML templating system for Python 3.14 by co-author team.
 - [tstr](https://github.com/ilotoki0804/tstr) - Cross-version compatible t-strings with backport support for older Python versions, plus utilities for rendering, interpolation handling, and extensions for HTML escaping, SQL, and logging.
 - [tstring-util](https://pypi.org/project/tstring-util/) - Rendering helpers for `Template` objects, including lazy `!fn` handlers plus safe splitting and path utilities
