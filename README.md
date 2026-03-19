@@ -39,6 +39,8 @@ Template strings (t-strings) are a new Python feature that provide programmable 
 template: Template = t"Hello {name}"
 
 # HTML auto-escaping example
+# Note: html() is a hypothetical function from PEP 750, not part of stdlib.
+# See https://github.com/t-strings/pep750-examples for a working implementation.
 evil = "<script>alert('evil')</script>"
 template = t"<p>{evil}</p>"
 assert html(template) == "<p>&lt;script&gt;alert('evil')&lt;/script&gt;</p>"
