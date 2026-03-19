@@ -64,10 +64,10 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 
 - [PEP 750: Template Strings](https://peps.python.org/pep-0750/) - The official specification defining t-strings syntax and semantics
 - [Template strings docs (`string.templatelib`)](https://docs.python.org/3.14/library/string.templatelib.html) - Canonical documentation for the `Template` API in 3.14
-- [Python 3.14.0rc3](https://www.python.org/downloads/release/python-3140rc3/) - Final release candidate with template string support (syntax is stable)
-- [PEP 745: Python 3.14 Release Schedule](https://peps.python.org/pep-0745/) - Official timeline for 3.14.0, targeting October 7, 2025
+- [Python 3.14.0](https://www.python.org/downloads/release/python-3140/) - Official release with template string support
+- [PEP 745: Python 3.14 Release Schedule](https://peps.python.org/pep-0745/) - Official timeline for 3.14.0, released October 7, 2025
 - [Python 3.14 documentation](https://docs.python.org/3.14/) - Latest docs covering template strings and `string.templatelib`
-- [t-strings.help](https://t-strings.help/) - Documentation and help site maintained by the PEP 750 author
+- [t-strings.help](https://t-strings.help/) - Documentation and help site maintained by the PEP 750 core team
 
 ## Development Tools
 
@@ -79,7 +79,7 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 ### Type Checking
 
 - [Pyright 1.1.402](https://github.com/microsoft/pyright/releases/tag/1.1.402) - Upstream release with first-class PEP 750 template string analysis (no fork required)
-- [mypy 1.18.2 release notes](https://mypy.readthedocs.io/en/stable/changelog.html) - Fails gracefully on unsupported template strings while full checking support is developed
+- [mypy 1.19.1 release notes](https://mypy.readthedocs.io/en/stable/changelog.html) - Fails gracefully on unsupported template strings while full checking support is developed
 
 ### IDE Extensions
 
@@ -89,8 +89,8 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 ### Environment & Installation
 
 - [uv](https://github.com/astral-sh/uv) - Fast Python package manager with built-in Python version management
-- [Python Docker Images](https://hub.docker.com/_/python) - Official Python images (3.14-rc tags available)
-- [CPython Source](https://github.com/python/cpython/tree/v3.14.0rc3) - Build Python 3.14 release candidate from source
+- [Python Docker Images](https://hub.docker.com/_/python) - Official Python images (3.14 tags available)
+- [CPython Source](https://github.com/python/cpython/tree/v3.14.0) - Build Python 3.14 from source
 
 ## Libraries & Frameworks
 
@@ -98,7 +98,7 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 
 - [sql-tstring](https://github.com/pgjones/sql-tstring) - Safe SQL query building with t-strings, including optional clause rewriting and dialect support (`pip install sql-tstring`)
 - [t-sql](https://pypi.org/project/t-sql/) - Lightweight SQL templating that turns t-strings into parameterized queries, supporting qmark, numeric, named, format, and pyformat styles on Python 3.14+
-- [psycopg 3 template string queries](https://www.psycopg.org/psycopg3/docs/basic/tstrings.html) - Experimental template string execution in psycopg 3.3 preview builds (installable from Test PyPI as `psycopg[binary]==3.3.0.dev1`) tested with Python 3.14 RC builds
+- [psycopg 3 template string queries](https://www.psycopg.org/psycopg3/docs/basic/tstrings.html) - Template string query execution in psycopg 3.3, supporting parameterized queries with t-strings (`pip install psycopg[binary]`)
 - [ludic](https://github.com/getludic/ludic) - Lightweight HTML templating library and web framework with t-strings support
 
 ### Utilities
@@ -135,15 +135,15 @@ To start using t-strings, you'll need Python 3.14 or later:
 
 ```bash
 # Using uv package manager
-uv python install 3.14.0rc3
+uv python install 3.14
 
 # Using Docker
-docker run -it python:3.14-rc
+docker run -it python:3.14
 
 # Build from source
 git clone https://github.com/python/cpython.git
 cd cpython
-git checkout v3.14.0rc3
+git checkout v3.14.0
 ./configure --enable-optimizations
 make -j4  # Or use $(nproc) on Linux, $(sysctl -n hw.ncpu) on macOS
 sudo make altinstall
