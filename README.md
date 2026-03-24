@@ -15,6 +15,7 @@ Template strings (t-strings) are a powerful new Python feature defined in [PEP 7
   - [Environment & Installation](#environment--installation)
 - [Libraries & Frameworks](#libraries--frameworks)
   - [Database & SQL](#database--sql)
+  - [HTML](#html)
   - [Utilities](#utilities)
 - [Learning Resources](#learning-resources)
   - [Tutorials & Videos](#tutorials--videos)
@@ -73,7 +74,7 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 
 ### Linting & Static Analysis
 
-- [t-linter](https://github.com/koxudaxi/t-linter) - Comprehensive linting tool for t-strings with IDE integrations
+- [t-linter](https://github.com/koxudaxi/t-linter) - Comprehensive linting tool for t-strings with IDE integrations, including html and thtml language support
   - [PyPI Package](https://pypi.org/project/t-linter/) - `pip install t-linter`
 
 ### Type Checking
@@ -83,8 +84,8 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 
 ### IDE Extensions
 
-- [VS Code T-Linter](https://marketplace.visualstudio.com/items?itemName=koxudaxi.t-linter) - Syntax highlighting, linting, and IntelliSense for t-strings
-- [PyCharm T-Linter Plugin](https://plugins.jetbrains.com/plugin/27541-tlinter) - Full IDE support for JetBrains products ([Source](https://github.com/koxudaxi/t-linter-pycharm-plugin))
+- [VS Code T-Linter](https://marketplace.visualstudio.com/items?itemName=koxudaxi.t-linter) - Syntax highlighting, linting, and IntelliSense for t-strings with html and thtml language support
+- [PyCharm T-Linter Plugin](https://plugins.jetbrains.com/plugin/27541-tlinter) - Full IDE support for JetBrains products with html and thtml language support ([Source](https://github.com/koxudaxi/t-linter-pycharm-plugin))
 
 ### Environment & Installation
 
@@ -99,13 +100,17 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 - [sql-tstring](https://github.com/pgjones/sql-tstring) - Safe SQL query building with t-strings, including optional clause rewriting and dialect support (`pip install sql-tstring`)
 - [t-sql](https://pypi.org/project/t-sql/) - Lightweight SQL templating that turns t-strings into parameterized queries, supporting qmark, numeric, named, format, and pyformat styles on Python 3.14+
 - [psycopg 3 template string queries](https://www.psycopg.org/psycopg3/docs/basic/tstrings.html) - Template string query execution in psycopg 3.3, supporting parameterized queries with t-strings (`pip install psycopg[binary]`)
+
+### HTML
+
+- [tstring-html](https://github.com/koxudaxi/tstring-html) - Parser-first HTML and T-HTML backends for t-strings with automatic escaping, class normalization, spread attributes, and JSX-style components via Rust-powered parsing
 - [ludic](https://github.com/getludic/ludic) - Lightweight HTML templating library and web framework with t-strings support
+- [pyhtml-enhanced](https://github.com/COMP1010UNSW/pyhtml-enhanced) - Build HTML documents in type-safe Python with a simple and learnable syntax, including [t-string support](https://comp1010unsw.github.io/pyhtml-enhanced/learn/advanced.html#template-strings)
+- [tdom](https://github.com/t-strings/tdom) - A 🤘 rockin' t-string HTML templating system for Python 3.14 by co-author team.
 
 ### Utilities
 
 - [better-dedent](https://github.com/treyhunner/better-dedent) - Enhanced string dedenting for cleaner template formatting
-- [pyhtml-enhanced](https://github.com/COMP1010UNSW/pyhtml-enhanced) - Build HTML documents in type-safe Python with a simple and learnable syntax, including [t-string support](https://comp1010unsw.github.io/pyhtml-enhanced/learn/advanced.html#template-strings)
-- [tdom](https://github.com/t-strings/tdom) - A 🤘 rockin' t-string HTML templating system for Python 3.14 by co-author team.
 - [tstr](https://github.com/ilotoki0804/tstr) - Cross-version compatible t-strings with backport support for older Python versions, plus utilities for rendering, interpolation handling, and extensions for HTML escaping, SQL, and logging.
 - [tstring-structured-data](https://github.com/koxudaxi/tstring-structured-data) - Parser-first JSON, TOML, and YAML backends for t-strings with Rust-powered validation, supporting both parsed data and formatted text output.
 - [tstring-util](https://pypi.org/project/tstring-util/) - Rendering helpers for `Template` objects, including lazy `!fn` handlers plus safe splitting and path utilities
