@@ -112,6 +112,7 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 
 - [better-dedent](https://github.com/treyhunner/better-dedent) - Enhanced string dedenting for cleaner template formatting
 - [tstr](https://github.com/ilotoki0804/tstr) - Cross-version compatible t-strings with backport support for older Python versions, plus utilities for rendering, interpolation handling, and extensions for HTML escaping, SQL, and logging.
+- [tstringlogger](https://github.com/pR0Ps/tstringlogger) - Use t-strings as log messages. The power of late serialization with the readability of f-strings!
 - [tstring-structured-data](https://github.com/koxudaxi/tstring-structured-data) - Parser-first JSON, TOML, and YAML backends for t-strings with Rust-powered validation, supporting both parsed data and formatted text output.
 - [tstring-util](https://pypi.org/project/tstring-util/) - Rendering helpers for `Template` objects, including lazy `!fn` handlers plus safe splitting and path utilities
 - [regex-template](https://github.com/treyhunner/regex-template) - Auto-escapes regular expression interpolations
