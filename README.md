@@ -16,6 +16,7 @@ Template strings (t-strings) are a powerful new Python feature defined in [PEP 7
 - [Libraries & Frameworks](#libraries--frameworks)
   - [Database & SQL](#database--sql)
   - [HTML](#html)
+  - [Internationalization](#internationalization)
   - [Utilities](#utilities)
 - [Learning Resources](#learning-resources)
   - [Tutorials & Videos](#tutorials--videos)
@@ -107,6 +108,10 @@ Learn more in [PEP 750](https://peps.python.org/pep-0750/).
 - [ludic](https://github.com/getludic/ludic) - Lightweight HTML templating library and web framework with t-strings support
 - [pyhtml-enhanced](https://github.com/COMP1010UNSW/pyhtml-enhanced) - Build HTML documents in type-safe Python with a simple and learnable syntax, including [t-string support](https://comp1010unsw.github.io/pyhtml-enhanced/learn/advanced.html#template-strings)
 - [tdom](https://github.com/t-strings/tdom) - A 🤘 rockin' t-string HTML templating system for Python 3.14 by co-author team.
+
+### Internationalization
+
+- [gettext-tstrings](https://github.com/yhay81/gettext-tstrings) - Safe gettext and Babel integration for t-strings: full-sentence msgids, translator-safe placeholder validation, and standard PO/MO catalogs via pybabel (`pip install gettext-tstrings`)
 
 ### Utilities
 
